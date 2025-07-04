@@ -168,7 +168,7 @@ export default function Header() {
             Про Нас
           </Link>
           <Link
-            href="#card-demo"
+            href="/contact"
             onClick={() => setIsMobileMenuOpen(false)}
             className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors"
           >
