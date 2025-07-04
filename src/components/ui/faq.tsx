@@ -92,7 +92,9 @@ const Faq = () => {
                   <div className="px-4 pb-5 sm:px-6 sm:pb-6">
                     <p>{item.answer}</p>
                     <Link
-                      href="/"
+                      href="https://wa.me/77027472433"
+                      target="_blank"
+                      rel="noopener noreferrer"
                       className="text-blue-600 dark:text-white font-bold transition-all duration-200 underline"
                     >
                       Узнать больше
@@ -106,7 +108,9 @@ const Faq = () => {
           <p className="text-center text-gray-600 dark:text-gray-300 text-base mt-9">
             Не нашли ответ на свой вопрос?{" "}
             <Link
-              href=""
+              href="https://wa.me/77027472433"
+              target="_blank"
+              rel="noopener noreferrer"
               className="font-medium text-blue-600 dark:text-white transition-all duration-200 hover:text-blue-700 focus:text-blue-700 underline"
             >
               Напишите нам

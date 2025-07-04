@@ -1,6 +1,14 @@
 "use client";
 
-import { BookMarkedIcon, Info, Contact, HomeIcon, Menu, X, BookOpen } from "lucide-react";
+import {
+  BookMarkedIcon,
+  Info,
+  Contact,
+  HomeIcon,
+  Menu,
+  X,
+  BookOpen,
+} from "lucide-react";
 import Link from "next/link";
 import { SearchInput } from "../SearchInput";
 import DarkModeToggle from "../DarkModeToggle";
@@ -88,7 +96,7 @@ export default function Header() {
                   </span>
                 </Link>
                 <Link
-                  href="#card-demo"
+                  href="/contact"
                   prefetch={false}
                   className="flex space-x-2 items-center text-sm font-medium text-muted-foreground hover:text-foreground transition-colors md:border md:border-border md:rounded-md md:px-4 md:py-2"
                 >

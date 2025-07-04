@@ -119,6 +119,9 @@ export const MobileSidebar = ({
         )}
         {...props}
       >
+        <div className="flex z-20 w-full font-bold text-black dark:text-white">
+          <span className="text-blue-500 dark:text-blue-200">Onay School</span>
+        </div>
         <div className="flex justify-end z-20 w-full">
           <IconMenu2
             className="text-neutral-800 dark:text-neutral-200"

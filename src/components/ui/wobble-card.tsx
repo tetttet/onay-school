@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
-import { heroImage } from "@/constant/imgaes";
+import { heroImage } from "@/constant/images";
 
 export const WobbleCard = ({
   children,

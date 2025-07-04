@@ -1,4 +1,4 @@
-const API_URL = "https://express-onay-server.vercel.app/api";
+import { API_URL } from "@/constant/url";
 // const API_URL = "http://localhost:8080/api";
 
 

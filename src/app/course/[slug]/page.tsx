@@ -9,6 +9,8 @@ import { Course } from "@/services/courseService";
 import { fetchCourses } from "@/services/courseService";
 import { useEffect, useState } from "react";
 import { fetchUserById, User } from "@/services/userService";
+import CourseDescription from "@/components/ui/CourseDescription";
+import { encodeId } from "@/lib/encryption";
 
 export default function CoursePage() {
   const [courses, setCourses] = useState<Course[]>([]);
@@ -87,9 +89,7 @@ export default function CoursePage() {
             {matchedCourse.title}
           </h1>
 
-          <p className="text-lg text-gray-600 dark:text-gray-300">
-            {matchedCourse.description}
-          </p>
+          <CourseDescription description={matchedCourse.description} />
 
           <div className="flex items-center flex-wrap gap-4">
             {(matchedCourse.category?.length
@@ -113,7 +113,7 @@ export default function CoursePage() {
           </div>
 
           <div className="flex items-center space-x-3 mt-4">
-            {tutor?.image_url && (
+            {tutor?.image_url ? (
               <Image
                 src={tutor?.image_url}
                 alt={tutor?.name}
@@ -121,10 +121,21 @@ export default function CoursePage() {
                 height={36}
                 className="w-9 h-9 rounded-full object-cover"
               />
+            ) : (
+              <div className="w-9 h-9 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center">
+                <span className="text-gray-500 dark:text-gray-300">
+                  {tutor?.name ? tutor.name.charAt(0).toUpperCase() : "?"}
+                </span>
+              </div>
             )}
             <div className="text-sm text-gray-600 dark:text-gray-300">
               <span>Created by </span>
-              <Link href="#" className="text-blue-500 hover:underline">
+              <Link
+                href={`/profile/${tutor?.username}?id=${
+                  tutor?.id ? encodeId(tutor.id) : ""
+                }`}
+                className="text-blue-500 hover:underline"
+              >
                 {tutor?.name}
               </Link>
             </div>
@@ -142,18 +153,29 @@ export default function CoursePage() {
             {valutes}
             {matchedCourse.price}
           </div>
-
           <div className="flex space-x-4 mt-6">
-            <button className="bg-black text-white px-5 py-3 rounded-lg hover:opacity-90 transition">
-              Подписаться на курс
-            </button>
-            <button className="bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white px-5 py-3 rounded-lg hover:opacity-90 transition">
-              Узнать больше
-            </button>
+            <a
+              href="https://wa.me/77027472433" // замените на ваш номер
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-black text-white px-5 py-3 rounded-lg hover:opacity-90 transition">
+                Подписаться на курс
+              </button>
+            </a>
+            <a
+              href="https://wa.me/77027472433"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="bg-gray-200 dark:bg-white/10 text-gray-900 dark:text-white px-5 py-3 rounded-lg hover:opacity-90 transition">
+                Узнать больше
+              </button>
+            </a>
           </div>
         </div>
 
-        <div className="rounded-xl overflow-hidden shadow-2xl">
+        <div className="rounded-xl overflow-hidden shadow-xl">
           <div
             className="w-full h-[800px] bg-cover bg-center"
             style={{ backgroundImage: `url(${matchedCourse.image_url})` }}

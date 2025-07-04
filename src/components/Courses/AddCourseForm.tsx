@@ -1,4 +1,5 @@
 "use client";
+import { API_URL } from "@/constant/url";
 import { fetchUserByEmail } from "@/services/userService";
 import React, { useEffect, useState } from "react";
 
@@ -57,7 +58,7 @@ const AddCourseForm = () => {
         category: categoryArray,
       };
 
-      const res = await fetch("https://express-onay-server.vercel.app/api/courses", {
+      const res = await fetch(`${API_URL}/courses`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

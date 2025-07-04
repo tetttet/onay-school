@@ -7,6 +7,8 @@ import {
   IconBookFilled,
   IconCreativeCommons,
   IconDesk,
+  IconMessage,
+  IconSubscript,
 } from "@tabler/icons-react";
 import { Loader, Airplay } from "lucide-react";
 
@@ -34,7 +36,7 @@ export const links = [
   },
   {
     label: "Настройки",
-    href: "/dashboard",
+    href: "/dashboard/settings",
     icon: (
       <IconSettings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
     ),
@@ -86,7 +88,7 @@ export const TutoringLinks = [
   },
   {
     label: "Настройки",
-    href: "/dashboard",
+    href: "/dashboard/settings",
     icon: (
       <IconSettings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
     ),
@@ -116,6 +118,20 @@ export const AdminLinks = [
     ),
   },
   {
+    label: "Сообщения",
+    href: "/dashboard/messages/contact-messages",
+    icon: (
+      <IconMessage className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+  },
+   {
+    label: "Подписки на рассылку",
+    href: "/dashboard/messages/subscriptions",
+    icon: (
+      <IconSubscript className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
+    ),
+  },
+  {
     label: "Создать пользователей",
     href: "/dashboard/users/create-user",
     icon: (
@@ -138,7 +154,7 @@ export const AdminLinks = [
   },
   {
     label: "Настройки",
-    href: "/dashboard",
+    href: "/dashboard/settings",
     icon: (
       <IconSettings className="h-5 w-5 shrink-0 text-neutral-700 dark:text-neutral-200" />
     ),

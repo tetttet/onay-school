@@ -22,7 +22,9 @@ const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
         )}
       >
         <SidebarMain />
-        <main className="flex-1 h-full overflow-y-auto">{children}</main>
+        <main className="flex-1 h-full overflow-y-auto bg-gradient-to-r from-[#f5f5f5] to-blue-100 dark:from-gray-900 dark:to-black ">
+          {children}
+        </main>
       </div>
     </ThemeProvider>
   );

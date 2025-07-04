@@ -6,6 +6,7 @@ import { Course, fetchCourses } from "@/services/courseService";
 import { useEffect, useState } from "react";
 import HeroHome from "@/components/demo/HeroHome";
 import Faq from "@/components/ui/faq";
+import VideoMaskDemo from "@/components/demo/VideoMaskDemo";
 
 export default function Home() {
   const [courses, setCourses] = useState<Course[]>([]);
@@ -49,6 +50,7 @@ export default function Home() {
         </div>
       </div>
       <WobbleCardDemo />
+      <VideoMaskDemo />
       <Faq />
       <InfiniteMovingCardsDemo />
     </div>

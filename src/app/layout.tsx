@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 
 import "./globals.css";
+import { Toaster } from "react-hot-toast";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -25,6 +26,15 @@ export default async function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <Toaster
+            position="top-center" // ⬅️ Показывать уведомление сверху по центру
+            toastOptions={{
+              style: {
+                padding: "12px 20px",
+                fontSize: "14px",
+              },
+            }}
+          />
         </ThemeProvider>
       </body>
     </html>

@@ -27,7 +27,12 @@ export function SidebarMain() {
     }
   }, []);
 
-  const userLinks = userData?.role === "tutor" ? TutoringLinks : userData?.role === "admin" ? AdminLinks : links;
+  const userLinks =
+    userData?.role === "tutor"
+      ? TutoringLinks
+      : userData?.role === "admin"
+      ? AdminLinks
+      : links;
 
   return (
     <Sidebar open={open} setOpen={setOpen}>
@@ -36,7 +41,9 @@ export function SidebarMain() {
           {open ? <Logo /> : <LogoIcon />}
           <div className="mt-8 flex flex-col gap-2">
             {userLinks.map((link, idx) => (
-              <SidebarLink key={idx} link={link} />
+              <div key={idx} onClick={() => setOpen(false)}>
+                <SidebarLink link={link} />
+              </div>
             ))}
           </div>
         </div>

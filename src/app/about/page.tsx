@@ -6,7 +6,7 @@ export default function About() {
     <>
       <HeroParallaxDemo />
       <div className="-mt-96">
-      <TimelineDemo />
+        <TimelineDemo />
       </div>
     </>
   );
