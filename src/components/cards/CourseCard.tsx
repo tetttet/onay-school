@@ -18,6 +18,7 @@ interface CourseCardProps {
 
 export function CourseCard({ course, progress, href }: CourseCardProps) {
   const [tutor, setTutor] = useState<User | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const tutor_id = course.tutor_id;
 
   useEffect(() => {
@@ -25,12 +26,19 @@ export function CourseCard({ course, progress, href }: CourseCardProps) {
       try {
         const data = await fetchUserById(tutor_id);
         setTutor(data);
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching tutor:", error);
       }
     };
     fetchTutor();
   }, [tutor_id]);
+
+  if (isLoading) {
+    return (
+      <div className="animate-pulse h-[250px] rounded-xl bg-muted shadow" />
+    );
+  }
 
   return (
     <Link

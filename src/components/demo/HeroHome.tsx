@@ -1,11 +1,20 @@
 "use client";
+
 import React from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const HeroHome = () => {
+  const { scrollY } = useScroll();
+
+  // Масштаб и прозрачность в зависимости от скролла
+  const scale = useTransform(scrollY, [0, 500], [1, 0.8]);
+  const opacity = useTransform(scrollY, [0, 2000], [1, 0]);
+
   return (
     <section className="relative w-full h-screen overflow-hidden">
-      {/* Background video */}
-      <video
+      {/* Анимированное видео */}
+      <motion.video
+        style={{ scale, opacity }}
         className="absolute top-0 left-0 w-full h-full object-cover"
         autoPlay
         muted
@@ -14,20 +23,9 @@ const HeroHome = () => {
       >
         <source src="/videos/hero.mp4" type="video/mp4" />
         Your browser does not support the video tag.
-      </video>
+      </motion.video>
 
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/50 z-10" />
-
-      {/* Text content */}
-      <div className="flex items-center justify-center h-full relative z-20 px-4 md:px-8">
-        <h1 className="font-bold leading-none text-center">
-          <span className="custom-stroke text-[20vw] sm:text-[18vw] md:text-[15vw] lg:text-[12vw] xl:text-[30vw]">
-            ONAY
-          </span>
-        </h1>
-      </div>
-
+      {/* Stroke-эффект через styled-jsx */}
       <style jsx>{`
         .custom-stroke {
           color: transparent;
