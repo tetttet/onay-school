@@ -4,8 +4,8 @@ import { Search } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Course, fetchCourses } from "@/services/courseService";
-import Image from "next/image";
-import Link from "next/link";
+import MobileSuggestions from "./ui/MobileSuggestions";
+import DesktopSuggestions from "./ui/DesktopSuggestions";
 
 export function SearchInput() {
   const router = useRouter();
@@ -66,38 +66,16 @@ export function SearchInput() {
       </form>
 
       {showSuggestions && filteredCourses.length > 0 && (
-        <ul className="absolute z-10 mt-2 w-[400px] rounded-xl bg-white shadow-2xl dark:bg-gray-800 max-h-96 overflow-auto p-2">
-          {filteredCourses.map((course) => (
-            <Link
-              href={`/course/${course.title
-                .toLowerCase()
-                .replace(/\s+/g, "-")}`}
-              key={course.id}
-              onClick={() => setShowSuggestions(false)}
-              className="block"
-            >
-              <li
-                key={course.id}
-                className="cursor-pointer px-4 py-3 hover:bg-gray-100 dark:hover:bg-gray-700 flex items-center gap-4 rounded-lg transition"
-              >
-                <Image
-                  width={64}
-                  height={64}
-                  priority
-                  src={course.image_url}
-                  alt={course.title}
-                  className="w-16 h-16 rounded-xl object-cover"
-                />
-                <div className="flex-1">
-                  <div className="font-semibold text-base">{course.title}</div>
-                  <div className="text-sm text-gray-500 dark:text-gray-400 line-clamp-1">
-                    {course.description}
-                  </div>
-                </div>
-              </li>
-            </Link>
-          ))}
-        </ul>
+        <>
+          <MobileSuggestions
+            courses={filteredCourses}
+            onClose={() => setShowSuggestions(false)}
+          />
+          <DesktopSuggestions
+            courses={filteredCourses}
+            onClose={() => setShowSuggestions(false)}
+          />
+        </>
       )}
     </div>
   );

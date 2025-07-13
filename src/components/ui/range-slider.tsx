@@ -47,18 +47,18 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
 
           return (
             <div
-              {...restProps}
-              style={{
-                ...style,
-                height: "24px",
-                width: "24px",
-                backgroundColor: "#3b82f6",
-                borderRadius: "50%",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                boxShadow: "0px 2px 6px #aaa",
-              }}
+            {...restProps}
+            style={{
+              ...style,
+              height: "24px",
+              width: "24px",
+              backgroundColor: "#3b82f6",
+              borderRadius: "50%",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              boxShadow: "0px 2px 6px #aaa",
+            }}
             >
               <div
                 style={{

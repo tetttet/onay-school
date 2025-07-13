@@ -4,8 +4,44 @@ import { SidebarMain } from "@/components/Sidebar/SidebarMain";
 import { cn } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Onay School | Dashboard",
-  description: "Onay School is a platform for learning and teaching.",
+  description: "Onay School — это платформа для обучения и преподавания.",
+  keywords: [
+    "Onay School",
+    "Dashboard",
+    "панель управления",
+    "обучение",
+    "онлайн образование",
+    "LMS",
+  ],
+  metadataBase: new URL("https://onayschool.kz"),
+  openGraph: {
+    title: "Onay School — Панель управления",
+    description:
+      "Управляйте своим обучением и курсами на платформе Onay School.",
+    url: "https://onayschool.kz/platform/dashboard",
+    siteName: "Onay School",
+    images: [
+      {
+        url: "https://onayschool.kz/image/logo/icon.png",
+        width: 800,
+        height: 600,
+        alt: "Логотип Onay School",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Onay School — Панель управления",
+    description: "Ваш личный кабинет для обучения и отслеживания прогресса.",
+    site: "@onayschool",
+    images: ["https://onayschool.kz/image/logo/icon.png"],
+  },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
