@@ -11,10 +11,21 @@ const Footer = () => {
         <a href="#" className="text-sky-500">
           <FaTwitter size={24} />
         </a>
-        <a href="#" className="text-pink-500">
+        <a
+          href="https://www.instagram.com/onay.school/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-pink-500 hover:text-pink-600 transition-colors"
+        >
           <FaInstagram size={24} />
         </a>
-        <a href="#" className="text-blue-700">
+
+        <a
+          href="https://www.linkedin.com/company/onay-school/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-700 hover:text-blue-800 transition-colors"
+        >
           <FaLinkedin size={24} />
         </a>
       </div>

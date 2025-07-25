@@ -28,15 +28,16 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
             {...props}
             style={{
               ...props.style,
-              height: "6px",
+              height: "8px",
               width: "100%",
               background: getTrackBackground({
                 values: priceRange,
-                colors: ["#ddd", "#3b82f6", "#ddd"],
+                colors: ["#e5e7eb", "#2563eb", "#e5e7eb"],
                 min: MIN,
                 max: MAX,
               }),
-              borderRadius: "4px",
+              borderRadius: "9999px",
+              transition: "background 0.3s ease",
             }}
           >
             {children}
@@ -47,30 +48,32 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
 
           return (
             <div
-            {...restProps}
-            style={{
-              ...style,
-              height: "24px",
-              width: "24px",
-              backgroundColor: "#3b82f6",
-              borderRadius: "50%",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              boxShadow: "0px 2px 6px #aaa",
-            }}
+              {...restProps}
+              style={{
+                ...style,
+                height: "28px",
+                width: "28px",
+                backgroundColor: "#2563eb",
+                border: "3px solid white",
+                borderRadius: "9999px",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                boxShadow: "0 4px 10px rgba(0,0,0,0.2)",
+                transition: "transform 0.2s ease",
+              }}
             >
               <div
                 style={{
                   position: "absolute",
-                  top: "-28px",
-                  color: "#000",
-                  fontWeight: "bold",
-                  fontSize: "14px",
-                  padding: "4px",
-                  borderRadius: "4px",
-                  backgroundColor: "#fff",
-                  boxShadow: "0 1px 2px rgba(0,0,0,0.15)",
+                  top: "-36px",
+                  color: "#111827",
+                  fontWeight: "600",
+                  fontSize: "13px",
+                  padding: "6px 8px",
+                  borderRadius: "6px",
+                  backgroundColor: "#f9fafb",
+                  boxShadow: "0 2px 6px rgba(0,0,0,0.15)",
                   whiteSpace: "nowrap",
                 }}
               >
@@ -80,7 +83,7 @@ const RangeSlider: React.FC<RangeSliderProps> = ({
           );
         }}
       />
-      <div className="flex justify-between text-sm mt-1 text-gray-600">
+      <div className="flex justify-between text-sm mt-2 text-gray-500 font-medium">
         <span>{MIN}₸</span>
         <span>{MAX}₸</span>
       </div>

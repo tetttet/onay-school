@@ -2,13 +2,14 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { BookOpen } from "lucide-react";
+import { UserIcon } from "lucide-react";
 import { Loader } from "@/components/ui/loader";
-import { CourseProgress } from "@/components/CourseProgress";
+// import { CourseProgress } from "@/components/CourseProgress";
 import { Course } from "@/services/courseService";
 import { fetchUserById, User } from "@/services/userService";
 import { useEffect, useState } from "react";
 import { valutes } from "@/constant/courses";
+import { useTheme } from "next-themes";
 
 interface CourseCardProps {
   course: Course;
@@ -20,7 +21,9 @@ export function CourseCard({ course, progress, href }: CourseCardProps) {
   const [tutor, setTutor] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const tutor_id = course.tutor_id;
+  const { theme } = useTheme();
 
+  console.log("CourseCard rendered with course:", progress);
   useEffect(() => {
     const fetchTutor = async () => {
       try {
@@ -119,16 +122,30 @@ export function CourseCard({ course, progress, href }: CourseCardProps) {
                     от {tutor.name}
                   </span>
                 </div>
-                <BookOpen className="h-4 w-4 text-muted-foreground" />
+                <Image
+                  src={
+                    theme === "light"
+                      ? "/image/logo/logo-blue-removebg.png"
+                      : "/image/logo/logo-removebg.png"
+                  }
+                  alt="Logo"
+                  width={400}
+                  height={400}
+                  className="h-16 w-16 text-muted-foreground"
+                />
               </div>
             )}
-            {typeof progress === "number" && (
-              <CourseProgress
-                progress={progress}
-                variant="default"
-                size="sm"
-                label="Course Progress"
-              />
+
+            {Array.isArray(course?.students) && (
+              <div className="flex items-center text-sm text-muted-foreground">
+                <UserIcon className="h-4 w-4 mr-1" />
+                {course.students.length} студент
+                {course.students.length === 1
+                  ? ""
+                  : course.students.length < 5
+                  ? "а"
+                  : "ов"}
+              </div>
             )}
           </div>
         </div>
